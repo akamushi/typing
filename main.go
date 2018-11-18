@@ -5,7 +5,10 @@ import "fmt"
 var example = []string{"golang", "hands-on", "in", "kagawa"}
 
 func main() {
-	var data []string
+	var (
+		data   []string
+		ok, ng int
+	)
 	data = example
 
 	for _, v := range data {
@@ -17,9 +20,13 @@ func main() {
 
 		if v == ans {
 			fmt.Println("○")
+			ok++
 		} else {
 			fmt.Println("×")
+			ng++
 		}
 
 	}
+
+	fmt.Printf("[正誤] 正解: %d, 誤り: %d\n", ok, ng)
 }
