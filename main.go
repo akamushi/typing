@@ -9,8 +9,9 @@ var example = []string{"golang", "hands-on", "in", "kagawa"}
 
 func main() {
 	var (
-		data   []string
-		ok, ng int
+		data      []string
+		ok, ng    int
+		inputTime float64
 	)
 	data = example
 
@@ -27,6 +28,7 @@ func main() {
 		end := time.Now()
 
 		fmt.Println(end.Sub(start))
+		inputTime += end.Sub(start).Seconds()
 
 		if v == ans {
 			fmt.Println("○")
@@ -40,6 +42,7 @@ func main() {
 	fmt.Printf("[正誤] 正解: %d, 誤り: %d\n", ok, ng)
 	cnt := float64(len(data))
 	fmt.Printf("正解率: %f, 誤り率: %f\n", float64(ok)/cnt, float64(ng)/cnt)
+	fmt.Printf("平均入力時間: %f\n", float64(inputTime)/cnt)
 }
 
 func countdown() {
