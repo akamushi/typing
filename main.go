@@ -29,4 +29,6 @@ func main() {
 	}
 
 	fmt.Printf("[正誤] 正解: %d, 誤り: %d\n", ok, ng)
+	cnt := float64(len(data))
+	fmt.Printf("正解率: %f, 誤り率: %f\n", float64(ok)/cnt, float64(ng)/cnt)
 }
