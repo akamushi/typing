@@ -20,8 +20,13 @@ func main() {
 		fmt.Println(v)
 
 		fmt.Print("input : ")
+
+		start := time.Now()
 		var ans string
 		fmt.Scanln(&ans)
+		end := time.Now()
+
+		fmt.Println(end.Sub(start))
 
 		if v == ans {
 			fmt.Println("○")
@@ -30,7 +35,6 @@ func main() {
 			fmt.Println("×")
 			ng++
 		}
-
 	}
 
 	fmt.Printf("[正誤] 正解: %d, 誤り: %d\n", ok, ng)
