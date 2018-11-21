@@ -77,7 +77,9 @@ func output(filename string) ([]string, error) {
 	scan := bufio.NewScanner(f)
 	for scan.Scan() {
 		text := scan.Text()
-		texts = append(texts, text)
+		if text != "" {
+			texts = append(texts, text)
+		}
 	}
 	return texts, nil
 }
