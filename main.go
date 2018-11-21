@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -77,9 +78,13 @@ func output(filename string) ([]string, error) {
 	scan := bufio.NewScanner(f)
 	for scan.Scan() {
 		text := scan.Text()
-		if text != "" {
+		if !isBlank(text) {
 			texts = append(texts, text)
 		}
 	}
 	return texts, nil
+}
+
+func isBlank(str string) bool {
+	return len(strings.TrimSpace(str)) == 0
 }
